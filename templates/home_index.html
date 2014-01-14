@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Django</title>
+    <link rel="stylesheet" type="text/css" href="/static/home_resources/css/index.css" />
+  </head>
+  <body>
+    <h1>Welcome to Django!</h1>
+    {% if Apps %}
+    <ul>
+      <li><a href="{% url 'admin:index' %}">Admin</a></li>
+      {% for app in Apps %}
+      {% with app|add:'.views.index' as app_index_view %}
+      <li><a href="{% url app_index_view %}">{{ app }}</a></li>
+      {% endwith %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>
