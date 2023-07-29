@@ -10,7 +10,7 @@
     <ul>
       <li><a href="{% url 'admin:index' %}">Admin</a></li>
       {% for app in Apps %}
-      {% with app|add:'.views.index' as app_index_view %}
+      {% with app|add:':index' as app_index_view %}
       <li><a href="{% url app_index_view %}">{{ app }}</a></li>
       {% endwith %}
       {% endfor %}
